@@ -353,6 +353,7 @@ Line 923: Char 34: runtime error: reference binding to null pointer of type 'val
 1237. 找出给定方程的正整数解。－
 1252. 奇数值单元格的数目。－
 1260. 二维网格迁移。－
+1261. 在受污染的二叉树中查找元素。－
 1266. 访问所有点的最小时间。－
 1275. 找出井字棋的获胜者。－
 1277. 统计全为 1 的正方形子矩阵。动态规划。f[i][j]表示以[i][j]为右下角的矩阵边长，结果求和。
@@ -373,5 +374,6 @@ Line 923: Char 34: runtime error: reference binding to null pointer of type 'val
 1323. 6 和 9 组成的最大数字。－
 1331. 数组序号转换。－
 1332. 删除回文子序列。－
+1356. 根据数字二进制下 1 的数目排序。－
 LCP2. 分式化简。－
 LCP1. 猜数字。－
