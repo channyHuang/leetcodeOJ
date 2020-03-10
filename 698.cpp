@@ -1,5 +1,60 @@
 class Solution {
 public:
+    bool flag;
+
+    bool canPartitionKSubsets(vector<int>& nums, int k) {
+        int len = nums.size();
+        //sort(nums.begin(), nums.end());
+        int total = nums[0], sum = 0;
+        int maxn = nums[0];
+        for (int i = 1; i < len; i++) {
+            total += nums[i];
+            if (maxn < nums[i]) maxn = nums[i];
+        }
+        if (total % k) return false;
+        sum = total / k;
+        if (maxn > sum) return false;
+        vector<int> status;
+        int maxStatus = (1 << len);
+        for (int i = 1; i < maxStatus; i++) {
+            int tmp = 0;
+            int j = 0;
+            int tmpi = i;
+            while (tmpi) {
+                if (tmpi & 1) {
+                    tmp += nums[j];
+                    if (tmp > sum) break;
+                }
+                j++;
+                tmpi >>= 1;
+            }
+            if (tmp == sum) status.push_back(i);
+        }
+
+        int stlen = status.size();
+        if (stlen < k) return false;
+        flag = false;
+        search(nums, status, k, 0, 0);
+        return flag;
+    }
+
+    void search(vector<int>& nums, vector<int>& status, int k, int curStatus, int curPos) {
+        if (curPos >= k) {
+            if (curStatus == (1 << nums.size()) - 1) flag = true;
+            return;
+        }
+        if (flag) return;
+        for (int i = 0; i < status.size(); i++) {
+            if (status[i] & curStatus) continue;
+            search(nums, status, k, curStatus | status[i], curPos + 1);
+            if (flag) return;
+        }
+    }
+};
+
+/*TLE
+class Solution {
+public:
     bool flag = false;
 
     bool canPartitionKSubsets(vector<int>& nums, int k) {
@@ -51,3 +106,4 @@ public:
         }
     }
 };
+*/
