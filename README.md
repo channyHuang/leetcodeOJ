@@ -19,6 +19,7 @@ notes while solving problems in leetcode
 19. 删除链表的倒数第N个节点。－
 20. 有效的括号。－
 21. 合并两个有序链表。－
+22. 括号生成。递归
 23. 合并K个排序链表。－
 24. 两两交换链表中的节点。－
 26. 删除排序数组中的重复项。－
@@ -88,6 +89,22 @@ notes while solving problems in leetcode
 133. 克隆图。－
 134. 加油站。－
 136. 只出现一次的数字。曾经很火的一道题，一个数与自身的异或是0，所有数异或一遍，得到的就是只出现一次的数字。
+137. 只出现一次的数字 II。看了官方解答～
+```
+	    # first appearance: 
+            # add num to seen_once 
+            # don't add to seen_twice because of presence in seen_once
+            
+            # second appearance: 
+            # remove num from seen_once 
+            # add num to seen_twice
+            
+            # third appearance: 
+            # don't add to seen_once because of presence in seen_twice
+            # remove num from seen_twice
+            seen_once = ~seen_twice & (seen_once ^ num)
+            seen_twice = ~seen_once & (seen_twice ^ num)
+```
 141. 环形链表。判断链表中是否有环，可用两个指针，一个每次走一步，另一个每次走两步，如果有环必定会相遇。
 142. 环形链表 II。快慢指针找到环中的一个节点，快指针回到头节点，两个指针同时移动一步，相逢时即指向环的第一个节点。
 144. 二叉树的前序遍历。－
@@ -407,6 +424,7 @@ Line 923: Char 34: runtime error: reference binding to null pointer of type 'val
 []
 942. 增减字符串匹配。－
 944. 删列造序。－ 
+945. 使数组唯一的最小增量。排序？
 949. 给定数字能组成的最大时间。－
 950. 按递增顺序显示卡牌。－
 951. 翻转等价二叉树。－
@@ -463,6 +481,7 @@ Line 923: Char 34: runtime error: reference binding to null pointer of type 'val
 1116. 打印零与奇偶数。每个函数只调用一次。。。
 1117. H2O 生成。
 1122. 数组的相对排序。－
+1123. 最深叶节点的最近公共祖先。－
 1128. 等价多米诺骨牌对的数量。－
 1137. 第N个菲波那契数。同70。
 1154. 一年中的第几天。－
@@ -480,6 +499,7 @@ Line 923: Char 34: runtime error: reference binding to null pointer of type 'val
 1208. 尽可能使字符串相等。sliding window
 1217. 玩筹码。－
 1221. 分割平衡字符串。－ 
+1222. 可以攻击国王的皇后。－
 1226. 哲学家进餐。WA。。。
 1227. 飞机座位分配概率。令f(i)表示第一个人选择第i个人的座位时，第n个座位被其他人（1到n-1）占用的概率.因此第n个座位被其他人占用的概率为1/n[f(2)+f(3)+...+f(n)]=1/2。
 1232. 缀点成线。－
@@ -519,7 +539,9 @@ Line 923: Char 34: runtime error: reference binding to null pointer of type 'val
 1365. 有多少小于当前数字的数字。－ 
 1379. 找出克隆二叉树中的相同节点。－
 1380. 矩阵中的幸运数。－
+1381. 设计一个支持增量操作的栈。－
 5336. 上升下降字符串。－ 
+5350. 将整数按权重排序。排序？
 5352. 生成每种字符都是奇数个的字符串。－
 LCP2. 分式化简。－
 LCP1. 猜数字。－
