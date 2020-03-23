@@ -227,6 +227,7 @@ notes while solving problems in leetcode
 414. 第三大的数。－
 415. 字符串相加。－
 421. 数组中两个数的最大异或值。构建字典树，遍历数组作数一，树往下贪心作数二，取最大的那个。
+423. 从英文中重建数字。－
 424. 替换后的最长重复字符。滑动窗口，学习了~
 429. N叉树的层序遍历。－
 430. 扁平化多级双向链表。链表基本操作
@@ -269,6 +270,7 @@ notes while solving problems in leetcode
 520. 检测大写字母。－
 521. 最长特殊序列 Ⅰ。－
 523. 连续的子数组和。－ 
+526. 优美的排列。回溯
 528. 按权重随机选择。－
 530. 二叉搜索树的最小绝对差。
 532. 数组中的K-diff数对。－
@@ -301,6 +303,11 @@ notes while solving problems in leetcode
 601. 体育馆的人流量。有坑，按日期不行，得按id.类似180
 605. 种花问题。－
 606. 根据二叉树创建字符串。－
+609. 在系统中查找重复文件。用了c++11貌似编译不过。。。
+```c++
+regex re("[\\s()]+");
+vector<string> sub(sregex_token_iterator(paths[i].begin(), paths[i].end(), re, -1), sregex_token_iterator());
+```
 617. 合并二叉树。－ 
 620. 有趣的电影。select
 621. 任务调度器。－
@@ -384,6 +391,7 @@ notes while solving problems in leetcode
 835. 图像重叠。－
 836. 矩形重叠。－
 840. 矩阵中的幻方。－
+841. 钥匙和房间。BFS
 844. 比较含退格的字符串。－
 846. 一手顺子。只有暴力？
 849. 到最近的人的最大距离。－
@@ -429,6 +437,7 @@ Line 923: Char 34: runtime error: reference binding to null pointer of type 'val
 942. 增减字符串匹配。－
 944. 删列造序。－ 
 945. 使数组唯一的最小增量。排序？
+946. 验证栈序列。栈
 949. 给定数字能组成的最大时间。－
 950. 按递增顺序显示卡牌。－
 951. 翻转等价二叉树。－
@@ -460,6 +469,7 @@ Line 923: Char 34: runtime error: reference binding to null pointer of type 'val
 1011. 在 D 天内送达包裹的能力。二分
 1013. 将数组分成和相等的三个部分。双指针
 1018. 可被 5 整除的二进制前缀。－
+1019. 链表中的下一个更大节点。可以用栈
 1021. 删除最外层的括号。－
 1022. 从根到叶的二进制数之和。－
 1023. 驼峰式匹配。－
@@ -502,6 +512,7 @@ Line 923: Char 34: runtime error: reference binding to null pointer of type 'val
 1200. 最小绝对差。－
 1207. 独一无二的出现次数。－
 1208. 尽可能使字符串相等。sliding window
+1209. 删除字符串中的所有相邻重复项 II。栈
 1217. 玩筹码。－
 1221. 分割平衡字符串。－ 
 1222. 可以攻击国王的皇后。－
