@@ -57,6 +57,7 @@ notes while solving problems in leetcode
 86. 分隔链表。－
 88. 合并两个有序数组。－
 89. 格雷编码。－　
+92. 反转链表 II。链表插入操作
 93. 复原IP地址。－
 94. 二叉树的中序遍历。－
 95. 不同的二叉搜索树 II。－ 
@@ -122,6 +123,7 @@ notes while solving problems in leetcode
 169. 求众数。－
 171. Excel表列序号。－
 172. 阶乘后的零。统计有多少个5。知道的就很简单，不知道的想破脑袋。。。
+173. 二叉搜索树迭代器。自己实现可中断的中序遍历
 175. 组合两个表。left join, right join
 176. 第二高的薪水。用max可以
 177. 第N高的薪水。distinct; limit m,n
@@ -182,6 +184,7 @@ notes while solving problems in leetcode
 274. H指数。二分？
 278. 第一个错误的版本。－
 283. 移动零。－
+284. 顶端迭代器。－
 287. 寻找重复数。可看作是数组链表，有重复数字->有环。
      方法一：step 1, 快慢指针找环，见141；step 2, 确定环的入口，快指针回到头，重新走，必定和慢指针相遇在环入口，数学证明走起～
      方法二：如果原数组可以改变，则可以把当前数字对应下标的数字取负，如果已经是负数说明出现过了
@@ -364,6 +367,7 @@ vector<string> sub(sregex_token_iterator(paths[i].begin(), paths[i].end(), re, -
 725. 分隔链表。－
 728. 自除数。－
 733. 图像渲染。－
+740. 删除与获得点数。一维dp
 744. 寻找比目标字母大的最小字母。－
 746. 使用最小花费爬楼梯。－
 747. 至少是其他数字两倍的最大数。－
@@ -462,6 +466,7 @@ Line 923: Char 34: runtime error: reference binding to null pointer of type 'val
 985. 查询后的偶数和。－
 986. 区间列表的交集。－
 989. 数组形式的整数加法。－
+991. 坏了的计算器。从Y着手，因为除法好分奇偶，优先除
 993. 二叉树的堂兄弟节点。－
 994. 腐烂的橘子。－
 997. 找到小镇的法官。－
@@ -484,6 +489,7 @@ Line 923: Char 34: runtime error: reference binding to null pointer of type 'val
 1029. 两地调度。要使xa+yb <= xb+ya,即xa-xb <= ya-yb，差值排序，前N位去x地即可。
 1030. 距离顺序排列矩阵单元格。－
 1033. 移动石子直到连续。－
+1035. 不相交的线。同最长公共子序列，dp
 1037. 有效的回旋镖。－ 
 1038. 从二叉搜索树到更大和树。－
 1040. 移动石子直到连续 II。没有c++???
@@ -494,6 +500,7 @@ Line 923: Char 34: runtime error: reference binding to null pointer of type 'val
 1052. 爱生气的书店老板。sliding window
 1071. 字符串的最大公因子。－
 1078. Bigram 分词。－击败了100.00%的用户～哦㖿～
+1079. 活字印刷。回溯。本来想用数学的排列组合直接计算的，算得头有点大。。。
 1089. 复写零。－
 1103. 分糖果 II。－
 1104. 二叉树寻路。－
