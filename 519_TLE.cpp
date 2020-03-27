@@ -1,50 +1,53 @@
 class Solution {
 public:
-    int len;
-    int rows;
-    int cols;
-    vector<vector<int>> vec;
+    class Node {
+    public:
+        int row;
+        int col;
+        Node(int _r = 0, int _c = 0) {
+            row = _r;
+            col = _c;
+        }
+    };
 
     Solution(int n_rows, int n_cols) {
+        for (int i = 0; i < n_rows; i++) {
+            for (int j = 0; j < n_cols; j++) {
+                nodes.push_back(Node(i, j));
+            }
+        }
         rows = n_rows;
         cols = n_cols;
-        len = n_rows * n_cols;
-        for (int i = 0; i < rows; i++) {
-            vector<int> subvec;
-            vec.push_back(subvec);
-        }
+        count = n_rows * n_cols;
     }
     
     vector<int> flip() {
-        int r = rand() % len + 1;
         vector<int> res;
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; j++) {
-                int k;
-                for (k = 0; k < vec[i].size(); k++) {
-                    if (vec[i][k] == j) break;
-                }
-                if (k == vec[i].size()) r--;
-                if (r == 0) {                  
-                    res.push_back(i);
-                    res.push_back(j);
-                    vec[i].push_back(j);
-                    len--;
-                    return res;
-                }
-            }
-        }
+        if (count <= 0) return res; 
+        int idx = rand() % count;
+        res.push_back(nodes[idx].row);
+        res.push_back(nodes[idx].col);
+        Node tmp = Node(nodes[idx].row, nodes[idx].col);
+        nodes[idx] = Node(nodes[count - 1].row, nodes[count - 1].col);
+        nodes[count - 1] = Node(tmp.row, tmp.col);
+        count--;
         return res;
     }
     
     void reset() {
-        len = rows * cols;
-        
+        count = rows * cols;
         for (int i = 0; i < rows; i++) {
-            vector<int> subvec;
-            vec[i].swap(subvec);
+            for (int j = 0; j < cols; j++) {
+                nodes[i * cols + j] = Node(i, j);
+            }
         }
     }
+
+private:
+    vector<Node> nodes;
+    int count;
+    int rows;
+    int cols;
 };
 
 /**
