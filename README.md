@@ -125,6 +125,7 @@ notes while solving problems in leetcode
 142. 环形链表 II。快慢指针找到环中的一个节点，快指针回到头节点，两个指针同时移动一步，相逢时即指向环的第一个节点。
 143. 重排链表。链表操作
 144. 二叉树的前序遍历。－
+146. LRU缓存机制。c++11 unordered_map
 147. 对链表进行插入排序。链表操作
 148. 排序链表。－ 
 151. 翻转字符串里的单词。string的find_first_of, find_first_not_of
@@ -401,6 +402,7 @@ vector<string> sub(sregex_token_iterator(paths[i].begin(), paths[i].end(), re, -
 724. 寻找数组的中心索引。－
 725. 分隔链表。－
 728. 自除数。－
+731. 我的日程安排表 II。map, maps[time]表示当前时间开始，后面的时间被占用，maps[start]++; maps[end]--; 遍历maps计算count大于等于3时表示有3重以上占用
 733. 图像渲染。－
 740. 删除与获得点数。一维dp
 744. 寻找比目标字母大的最小字母。－
@@ -444,6 +446,7 @@ vector<string> sub(sregex_token_iterator(paths[i].begin(), paths[i].end(), re, -
 846. 一手顺子。只有暴力？
 849. 到最近的人的最大距离。－
 852. 山脉数组的峰顶索引。－
+855. 考场就座。map
 859. 亲密字符串。－
 860. 柠檬水找零。－
 861. 翻转矩阵后的得分。贪心
@@ -476,6 +479,7 @@ vector<string> sub(sregex_token_iterator(paths[i].begin(), paths[i].end(), re, -
 922. 按奇偶排序数组 II。－
 925. 长按键入。－
 929. 独特的电子邮件地址。－
+932. 漂亮数组。分治，分奇偶
 933. 最近的请求次数。－
 938. 二叉搜索树的范围和。－ 
 941. 有效的山脉数组。－是不是不能相信题目中说的length>=3???
@@ -495,6 +499,7 @@ Line 923: Char 34: runtime error: reference binding to null pointer of type 'val
 953. 验证外星语词典。－
 958. 二叉树的完全性检验。－
 961. 重复 N 次的元素。－
+963. 最小面积矩形 II。算对角中点是否重合判断是否平行四边行，再判断垂直
 965. 单值二叉树。－
 969. 煎饼排序。－
 970. 强整数。－
@@ -533,7 +538,7 @@ Line 923: Char 34: runtime error: reference binding to null pointer of type 'val
 1035. 不相交的线。同最长公共子序列，dp
 1037. 有效的回旋镖。－ 
 1038. 从二叉搜索树到更大和树。－
-1040. 移动石子直到连续 II。没有c++???
+1040. 移动石子直到连续 II。c++编译器有点问题，有时候提交会出现莫名编译错误，同样的代码再次提交又正常
 1042. 不邻接植花。－
 1043. 分隔数组以得到最大和。一维dp。长度最多为 K 指的是分隔后每段的长度，不是分隔的段数，一开始理解错了纠结了好久...
 1046. 最后一块石头的重量。－
