@@ -1,36 +1,46 @@
 class RandomizedSet {
 public:
-    vector<int> nums;
-    unorder_map<int, int> maps;
-
     /** Initialize your data structure here. */
     RandomizedSet() {
-        nums.clear();
-        maps.clear();
+        count = 0;
     }
     
     /** Inserts a value to the set. Returns true if the set did not already contain the specified element. */
     bool insert(int val) {
-        if (maps.count(val)) return false;
-        nums.push_back(val);
-        maps.insert(val, nums.size() - 1);
-        return true;
+        unordered_map<int, int>::iterator itr = maps.find(val);
+        if (itr == maps.end()) {
+            if (vec.size() > count) vec[count] = val;
+            else vec.push_back(val);
+            maps.insert(pair<int, int>(val, count));
+            count++;
+            return true;
+        }
+        return false;
     }
     
     /** Removes a value from the set. Returns true if the set contained the specified element. */
     bool remove(int val) {
-        if (!maps.count(val)) return false;
-        int idx = maps[val];
-        nums[idx] = nums[nums.size() - 1];
-        maps[nums[idx]] = idx;
-        nums.remove(val);
-        maps.remove(val);
+        unordered_map<int, int>::iterator itr = maps.find(val);
+        if (itr == maps.end()) return false;
+        if (count > 1) {
+            vec[itr->second] = vec[count - 1];
+            maps[vec[count - 1]] = itr->second;
+        }
+        count--;
+        maps.erase(itr);
+        return true;
     }
     
     /** Get a random element from the set. */
     int getRandom() {
-        return nums[rand() % (nums.size() - 1)];
+        int idx = rand() % count;
+        return vec[idx];
     }
+
+private:
+    unordered_map<int, int> maps;
+    vector<int> vec;
+    int count;
 };
 
 /**
