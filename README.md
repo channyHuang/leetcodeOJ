@@ -208,6 +208,7 @@ notes while solving problems in leetcode
 260. 只出现一次的数字 III。x & (-x)保留最后一位1。
 262. 行程和用户。left join, right join, inner join, on, where
 263. 丑数。－
+264. 丑数 II。dp，数组，三个指针分别指向同2，3，5相乘的下一个数，取最小的加入数组，移动对应指针
 268. 缺失数字。－
 274. H指数。二分？
 278. 第一个错误的版本。－
