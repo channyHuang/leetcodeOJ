@@ -292,6 +292,7 @@ notes while solving problems in leetcode
 429. N叉树的层序遍历。－
 430. 扁平化多级双向链表。链表基本操作
 434. 字符串中的单词数。－
+435. 无重叠区间。贪心
 436. 寻找右区间。排序，二分
 437. 路径总和 III。－
 438. 找到字符串中所有字母异位词。统计
@@ -304,6 +305,7 @@ notes while solving problems in leetcode
 449. 序列化和反序列化二叉搜索树。[1,2,3,null,4,null,null]
 450. 删除二叉搜索树中的节点。－
 451. 根据字符出现频率排序。－
+452. 用最少数量的箭引爆气球。贪心
 453. 最小移动次数使数组元素相等。n-1个元素+1相当于1个元素-1，反向思维
 454. 四数相加 II。map
 455. 分发饼干。－
@@ -550,6 +552,7 @@ vector<string> sub(sregex_token_iterator(paths[i].begin(), paths[i].end(), re, -
 905. 按奇偶排序数组。－
 907. 子数组的最小值之和。超时？？？
 908. 最小差值 I。－
+909. 蛇梯棋。广搜
 911. 在线选举。先统计后二分查找
 912. 排序数组。难度中等？？？
 914. 卡牌分组。－ 
@@ -563,6 +566,7 @@ vector<string> sub(sregex_token_iterator(paths[i].begin(), paths[i].end(), re, -
 930. 和相同的二元子数组。另算S＝0，其它同1248
 932. 漂亮数组。分治，分奇偶
 933. 最近的请求次数。－
+934. 最短的桥。深搜+广搜
 938. 二叉搜索树的范围和。－ 
 941. 有效的山脉数组。－是不是不能相信题目中说的length>=3???
 执行结果：
@@ -581,6 +585,7 @@ Line 923: Char 34: runtime error: reference binding to null pointer of type 'val
 950. 按递增顺序显示卡牌。－
 951. 翻转等价二叉树。－
 953. 验证外星语词典。－
+955. 删列造序 II。贪心
 959. 由斜杠划分区域。深搜
 958. 二叉树的完全性检验。－
 961. 重复 N 次的元素。－
@@ -596,6 +601,7 @@ Line 923: Char 34: runtime error: reference binding to null pointer of type 'val
 979. 在二叉树中分配硬币。－
 981. 基于时间的键值存储。二分
 983. 最低票价。一维dp,dp[i] = min(dp[i - 1] + cost[0], dp[k] + cost[1], dp[m] + cost[2]),其中days[m]为与i相差大于等于30的最大m，k同理。
+984. 不含 AAA 或 BBB 的字符串。贪心
 985. 查询后的偶数和。－
 986. 区间列表的交集。－
 989. 数组形式的整数加法。－
@@ -724,6 +730,7 @@ Line 923: Char 34: runtime error: reference binding to null pointer of type 'val
 1306. 跳跃游戏 III。广搜
 1309. 解码字母到整数映射。－
 1310. 子数组异或查询。－
+1311. 获取你好友已观看的视频。广搜
 1313. 解压缩编码列表。－
 1315. 祖父节点值为偶数的节点和。－
 1317. 将整数转换为两个无零整数的和。－
