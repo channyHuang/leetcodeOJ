@@ -322,6 +322,7 @@ notes while solving problems in leetcode
 461. 汉明距离。－ 等于求x^y中1的个数
 462. 最少移动次数使数组元素相等 II。数学，中位数
 463. 岛屿的周长。－
+467. 环绕字符串中唯一的子字符串。dp[i]表示以'a'+i结尾的子串的个数，vector还有个函数叫accumulate
 468. 验证IP地址。字符串
 470. 用 Rand7() 实现 Rand10()。拒绝概率
 474. 一和零。三维dp，dp[i][m][n]
@@ -570,6 +571,7 @@ vector<string> sub(sregex_token_iterator(paths[i].begin(), paths[i].end(), re, -
 911. 在线选举。先统计后二分查找
 912. 排序数组。难度中等？？？
 914. 卡牌分组。－ 
+915. 分割数组。－
 917. 仅仅反转字母。－
 919. 完全二叉树插入器。树操作
 921. 使括号有效的最少添加。－
