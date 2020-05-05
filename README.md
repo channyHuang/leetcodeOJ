@@ -402,6 +402,7 @@ notes while solving problems in leetcode
 regex re("[\\s()]+");
 vector<string> sub(sregex_token_iterator(paths[i].begin(), paths[i].end(), re, -1), sregex_token_iterator());
 ```
+611. 有效三角形的个数。数组
 617. 合并二叉树。－ 
 620. 有趣的电影。select
 621. 任务调度器。－
@@ -493,6 +494,7 @@ vector<string> sub(sregex_token_iterator(paths[i].begin(), paths[i].end(), re, -
 767. 重构字符串。排序
 769. 最多能完成排序的块。－
 771. 宝石与石头。－ 
+775. 全局倒置与局部倒置。取前i-2个当中最大的和当前的比较即可
 777. 在LR字符串中交换相邻字符。－ 
 779. 第K个语法符号。－
 781. 森林中的兔子。数学？
@@ -671,6 +673,7 @@ Line 923: Char 34: runtime error: reference binding to null pointer of type 'val
 1027. 最长等差数列。提交返回“内部出错”？？？
 1029. 两地调度。要使xa+yb <= xb+ya,即xa-xb <= ya-yb，差值排序，前N位去x地即可。
 1030. 距离顺序排列矩阵单元格。－
+1031. 两个非重叠子数组的最大和。数组
 1033. 移动石子直到连续。－
 1035. 不相交的线。同最长公共子序列，dp
 1037. 有效的回旋镖。－ 
@@ -834,6 +837,7 @@ Line 923: Char 34: runtime error: reference binding to null pointer of type 'val
 1404. 将二进制表示减到 1 的步骤数。位运算
 1405. 最长快乐字符串。贪心
 1408. 数组中的字符串匹配。字符串匹配
+1409. 查询带键的排列。链表
 1410. HTML 实体解析器。直接操作比string::find_first_of快
 1414. 和为 K 的最少斐波那契数字数目。贪心，第45个f就超过了10^9
 1418. 点菜展示表。map搞掟
@@ -841,6 +845,7 @@ Line 923: Char 34: runtime error: reference binding to null pointer of type 'val
 1423. 可获得的最大点数。遍历2k次及可
 1424. 对角线遍历 II。直接遍历会超时，记录下标进行排序
 1437. 是否所有 1 都至少相隔 k 个元素。数组
+1438. 绝对差不超过限制的最长连续子数组。数组
 5336. 上升下降字符串。－ 
 5350. 将整数按权重排序。排序？
 5352. 生成每种字符都是奇数个的字符串。－
