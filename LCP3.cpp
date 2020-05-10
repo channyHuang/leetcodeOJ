@@ -1,4 +1,53 @@
-
+class Solution {
+public:
+    bool robot(string command, vector<vector<int>>& obstacles, int x, int y) {
+        int dx = 0, dy = 0;
+        map<int, set<int>> maps;
+        map<int, set<int>>::iterator itr;
+        for (int i = 0; i < command.length(); i++) {
+            if (command[i] == 'U') dy++;
+            else dx++;
+        }
+        if (abs(x / dx - y / dy) > 1) return false;
+        int len = obstacles.size();
+        for (int i = 0; i < len; i++) {
+            int ox = obstacles[i][0];
+            int oy = obstacles[i][1];
+            //if (ox == x && oy == y) return false;
+            if (ox > x || oy > y) continue;
+            
+            int cnt = min(ox / dx, oy / dy);
+            ox -= cnt * dx;
+            oy -= cnt * dy;
+            if (ox > dx || oy > dy) continue;
+            itr = maps.find(ox);
+            if (itr == maps.end()) {
+                set<int> sub;
+                sub.insert(oy);
+                maps.insert(pair<int, set<int>>(ox, sub));
+            } else {
+                itr->second.insert(oy);
+            }
+        } 
+        int tx = x - (dx * min(x / dx, y / dy));
+        int ty = y - (dy * min(x / dx, y / dy));    
+        int sx = 0, sy = 0;
+        bool flag = false;
+        if (sx == tx && sy == ty) flag = true;
+        itr = maps.find(sx);
+        if (itr != maps.end() && (itr->second.find(sy) != itr->second.end())) return false;
+        for (int i = 0; i < command.length(); i++) {
+            if (command[i] == 'U') sy++;
+            else {
+                sx++;
+                itr = maps.find(sx);
+            }
+            if (sx == tx && sy == ty) flag = true;
+            if (itr != maps.end() && (itr->second.find(sy) != itr->second.end())) return false;
+        }
+        return flag;
+    }
+};
 /*TLE
 class Solution {
 public:
