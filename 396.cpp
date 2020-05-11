@@ -1,3 +1,23 @@
+class Solution {
+public:
+    int maxRotateFunction(vector<int>& A) {
+        long long len = A.size();
+        if (len <= 0) return 0;
+        long long dp[len];
+        long long sum = A[0];
+        memset(dp, 0, sizeof(dp));
+        for (int i = 1; i < len; i++) {
+            dp[0] += (i * A[i]);
+            sum += A[i];
+        }
+        long long res = dp[0];
+        for (int i = 1; i < len; i++) {
+            dp[i] = dp[i - 1] + sum - len * A[len - i];
+            res = max(res, dp[i]);
+        }
+        return res;
+    }
+};
 /* 直接算，用堆，都会超时哦
 class Solution {
 public:
