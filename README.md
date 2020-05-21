@@ -34,6 +34,7 @@ notes while solving problems in leetcode
 34. 在排序数组中查找元素的第一个和最后一个位置。－
 35. 搜索插入位置。二分。。。
 36. 有效的数独。只需要判断已填的数是否有冲突，不需要考虑它是否有解
+37. 解数独。深搜
 38. 38. 报数。没看懂题目，过...............
 39. 组合总和。回溯
 40. 组合总和 II。回溯
@@ -332,6 +333,7 @@ notes while solving problems in leetcode
 467. 环绕字符串中唯一的子字符串。dp[i]表示以'a'+i结尾的子串的个数，vector还有个函数叫accumulate
 468. 验证IP地址。字符串
 470. 用 Rand7() 实现 Rand10()。拒绝概率
+473. 火柴拼正方形。四个数组表示四条边，回溯
 474. 一和零。三维dp，dp[i][m][n]
 475. 供暖器。－
 476. 数字的补数。－
@@ -654,6 +656,7 @@ Line 923: Char 34: runtime error: reference binding to null pointer of type 'val
 977. 有序数组的平方。－
 978. 最长湍流子数组。滑动窗口+2
 979. 在二叉树中分配硬币。－
+980. 不同路径 III. 深搜
 981. 基于时间的键值存储。二分
 983. 最低票价。一维dp,dp[i] = min(dp[i - 1] + cost[0], dp[k] + cost[1], dp[m] + cost[2]),其中days[m]为与i相差大于等于30的最大m，k同理。
 984. 不含 AAA 或 BBB 的字符串。贪心
