@@ -63,6 +63,7 @@ notes while solving problems in leetcode
 69. x 的平方根。二分，注意int越界！！！用x/m>m判断而不是x>m*m。
 70. 爬楼梯。菲波那契数列，记不住公式啊啊啊，超时啊啊啊。。。
 71. 简化路径。栈操作
+72. 编辑距离。二维dp
 73. 矩阵置零。－
 74. 搜索二维矩阵。－
 75. 颜色分类。－
@@ -662,6 +663,7 @@ Line 923: Char 34: runtime error: reference binding to null pointer of type 'val
 979. 在二叉树中分配硬币。－
 980. 不同路径 III. 深搜
 981. 基于时间的键值存储。二分
+982. 按位与为零的三元组。暴力会超时，难度为困难的就别考虑用暴力了。hash走起
 983. 最低票价。一维dp,dp[i] = min(dp[i - 1] + cost[0], dp[k] + cost[1], dp[m] + cost[2]),其中days[m]为与i相差大于等于30的最大m，k同理。
 984. 不含 AAA 或 BBB 的字符串。贪心
 985. 查询后的偶数和。－
