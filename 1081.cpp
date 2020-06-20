@@ -1,3 +1,39 @@
+class Solution {
+public:
+    string smallestSubsequence(string text) {
+        int len = text.length();
+        string res = text;
+        int pos = 0;
+        int count[26] = {0};
+        for (int i = 0; i < len; i++) {
+            count[text[i] - 'a']++;
+        }
+        bool used[26] = {false};
+        for (int i = 0; i < len; i++) {
+            if (pos == 0) {
+                res[pos++] = text[i];
+                used[text[i] - 'a'] = true;
+                continue;
+            }
+            if (used[text[i] - 'a']) {
+                count[text[i] - 'a']--;
+                continue;
+            }
+            if (count[res[pos - 1] - 'a'] > 1 && res[pos - 1] > text[i]) {
+                count[res[pos - 1] - 'a']--;
+                used[res[pos - 1] - 'a'] = false;
+                pos--;
+                i--;
+                continue;
+            }
+            res[pos++] = text[i];
+            used[text[i] - 'a'] = true;
+        }
+        res[pos] = 0;
+        return res;
+    }
+};
+
 /*这种贪心不行WA
 class Solution {
 public:
