@@ -306,6 +306,7 @@ notes while solving problems in leetcode
 377. 组合总和 Ⅳ。一维dp,需要做溢出处理，否则中间会有的溢出int
 378. 有序矩阵中第K小的元素。－ 
 380. 常数时间插入、删除和获取随机元素。可以用c++11的unorder_map
+381. O(1) 时间插入、删除和获取随机元素 - 允许重复。unordered_multiset险过，容易超时。
 382. 链表随机节点。－
 383. 赎金信。-
 384. 打乱数组。Fisher-Yates 洗牌算法
