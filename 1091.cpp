@@ -1,3 +1,4 @@
+
 class Solution {
 public:
     int shortestPathBinaryMatrix(vector<vector<int>>& grid) {
@@ -6,14 +7,14 @@ public:
         int cols = grid[0].size();
         if (cols <= 0) return -1;
         if (grid[0][0] == 1 || grid[rows - 1][cols - 1] == 1) return -1;
-        res = rows * cols + 1;
+        step.resize(rows, vector<int>(cols, 0));
+        res = -1;
         search(grid, rows, cols);
         if (res == rows * cols + 1) return -1;
         return res;
     }
     
     void search(vector<vector<int>>& grid, int rows, int cols) {
-        int step[102][102];
         step[0][0] = 1;
         queue<pair<int, int>> qu;
         qu.push(pair<int, int>(0, 0));
@@ -24,7 +25,7 @@ public:
             int c = curPair.second;
             if (r == rows - 1 && c == cols - 1) {
                 res = step[r][c];
-                return;
+                continue;
             }
             if (r > 0) {
                 if (step[r - 1][c] == 0 && grid[r - 1][c] == 0) {
@@ -67,4 +68,6 @@ public:
 
 private:
     int res;
+    vector<vector<int>> step;
 };
+
