@@ -698,6 +698,7 @@ Line 923: Char 34: runtime error: reference binding to null pointer of type 'val
 965. 单值二叉树。－
 966. 元音拼写检查器。字符串比较
 967. 连续差相同的数字。深搜
+968. 监控二叉树。从下往上搜索，每个节点共有installed, watched, empty三种状态，empty的是需要父节点安装的，最后还要判断根是否empty，是的话+1，因为根没有父节点了。
 969. 煎饼排序。－
 970. 强整数。－
 971. 翻转二叉树以匹配先序遍历。计数，深搜
