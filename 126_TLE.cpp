@@ -2,50 +2,66 @@ class Solution {
 public:
     class Node {
     public:
-        vector<int> sub;
+        vector<int> next;
         int len;
-        vector<bool> used;
+        Node(int _len = INT_MAX) {
+            len = _len;
+        }
     };
 
-    vector<vector<string>> findLadders(string beginWord, string endWord, vector<string>& wordList) {
-        this->endWord = endWord;
-        this->beginWord = beginWord;
+    class QuNode {
+    public:
+        int len;
+        vector<int> path;
+    };
+
+    vector<vector<string>> findLadders(string beginWord, string endWord, vector<string> wordList) {
+        maxlen = INT_MAX;
         int dlen = wordList.size();
         int beginIdx = -1, endIdx = -1;
         for (int i = 0; i < dlen; i++) {
             if (beginIdx == -1 && wordList[i] == beginWord) beginIdx = i;
             if (endIdx == -1 && wordList[i] == endWord) endIdx = i;
-            maps[i] = vector<int>();
         }
         if (endIdx == -1) return res;
-        if (beginIdx == -1) {
-            wordList.push_back(beginWord);
-            beginIdx = wordList.size() - 1;
-        }
         dlen = wordList.size();
+        vector<Node> nodes(dlen + 1, Node());
         for (int i = 0; i < dlen; i++) {
+            if (beginIdx == -1) {
+                if (similar(wordList[i], beginWord)) {
+                    nodes[dlen].next.push_back(i);
+                }
+            }
             for (int j = i + 1; j < dlen; j++) {
                 if (similar(wordList[i], wordList[j])) {
-                    maps[i].push_back(j);
-                    maps[j].push_back(i);
+                    nodes[i].next.push_back(j);
+                    nodes[j].next.push_back(i);
                 }
             }
         }
-        maxlen = INT_MAX;
-        vector<bool> used(dlen, false);
-        queue<Node> qu;
-        Node root;
-        root.used.resize(dlen, false);
-        root.sub.push_back(beginIdx);
-        root.used[beginIdx] = true;
-        root.len = 1;
-        qu.push(root);
+
+        if (beginIdx == -1) {
+            wordList.push_back(beginWord);
+        }
+
+        queue<QuNode> qu;
+        {
+            QuNode node;
+            node.len = 1;
+            node.path.push_back(beginIdx == -1 ? dlen : beginIdx);
+            if (beginIdx == -1) {
+                nodes[dlen].len = 1;
+            } else {
+                nodes[beginIdx].len = 1;
+            }
+            qu.push(node);
+        }
 
         while (!qu.empty()) {
-            Node node = qu.front();
+            QuNode node = qu.front();
             qu.pop();
+            int curIdx = node.path[node.len - 1];
             if (node.len > maxlen) break;
-            int curIdx = node.sub[node.len - 1];
             if (curIdx == endIdx) {
                 if (maxlen > node.len) {
                     res.clear();
@@ -53,30 +69,30 @@ public:
                 }
                 vector<string> substr;
                 for (int i = 0; i < node.len; i++) {
-                    substr.push_back(wordList[node.sub[i]]);
+                    substr.push_back(wordList[node.path[i]]);
                 }
                 res.push_back(substr);
                 continue;
             }
-            //if (used[curIdx]) continue;
-            //used[curIdx] = true;
 
-            for (int i = 0; i < maps[curIdx].size(); i++) {
-                if (node.used[maps[curIdx][i]]) continue;
-                Node newNode = node;
-                node.used[maps[curIdx][i]] = true;
-                newNode.sub.push_back(maps[curIdx][i]);
+            for (int i = 0; i < nodes[curIdx].next.size(); i++) {
+                if (nodes[nodes[curIdx].next[i]].len <= node.len) continue;
+                QuNode newNode = node;
+                newNode.path.push_back(nodes[curIdx].next[i]);
                 newNode.len++;
+                nodes[nodes[curIdx].next[i]].len = node.len + 1;
                 qu.push(newNode);
             }
         }
-/*
+#ifdef DEBUG_OUTPUT
+        cout << res.size() << endl;
         for (int i = 0; i < res.size(); i++) {
             for (int j = 0; j < res[i].size(); j++) {
                 cout << res[i][j] << " ";
             }
             cout << endl;
-        }*/
+        }
+#endif
         return res;
     }
 
@@ -94,8 +110,6 @@ public:
     }
 
 private:
-    unordered_map<int, vector<int>> maps;
     vector<vector<string>> res;
-    string beginWord, endWord;
     int maxlen;
 };
