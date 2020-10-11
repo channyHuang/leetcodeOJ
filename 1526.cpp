@@ -1,5 +1,43 @@
 class Solution {
 public:
+    int minNumberOperations(vector<int>& target) {
+        int len = target.size();
+        if (len == 1) return target[0];
+        vector<int> vec(len, 0);
+        vec[0] = target[0];
+        int pos = 0;
+        res = 0;
+        for (int i = 1; i < len; i++) {
+            if (vec[pos] == target[i]) continue;
+            else if (vec[pos] < target[i]) {
+                vec[pos + 1] = target[i];
+                pos++;
+            } else {
+                if (pos == 0) {
+                    res += (vec[pos] - target[i]);
+                    vec[pos] = target[i];
+                } else if (vec[pos - 1] < vec[pos]){
+                    res += (vec[pos] - max(vec[pos - 1], target[i]));
+                    i--;
+                    pos--;
+                }
+            }
+        } 
+        while (pos >= 0) {
+            res += (pos > 0 ? vec[pos] - vec[pos - 1] : vec[pos]);
+            pos--;
+        }
+        return res;
+    }
+private:
+    int res;
+};
+
+
+/*
+//TLE
+class Solution {
+public:
     class Node {
     public:
         int value;
@@ -62,3 +100,5 @@ private:
     int pos;
     int res;
 };
+*/
+

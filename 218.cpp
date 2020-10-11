@@ -1,5 +1,39 @@
 class Solution {
 public:
+    vector<vector<int>> getSkyline(vector<vector<int>>& buildings) {
+        int len = buildings.size();
+        multiset<pair<int, int>> index;
+        for (int i = 0; i < len; i++) {
+            index.insert(pair<int, int>(buildings[i][0], -buildings[i][2]));
+            index.insert(pair<int, int>(buildings[i][1], buildings[i][2]));
+        }
+        multiset<int> heights;
+        heights.insert(0);
+        int lastHeight = 0;
+        int lastPos = 0;
+        vector<vector<int>> res;
+        for (multiset<pair<int, int>>::iterator sitr = index.begin(); sitr != index.end(); sitr++) {
+            if ((*sitr).second < 0) {
+                heights.insert(0 - (*sitr).second);
+            } else {
+                heights.erase(heights.find((*sitr).second));
+            }
+            int curHeight = *heights.rbegin();
+            if (lastHeight != curHeight) {
+                lastHeight = curHeight;
+                lastPos = (*sitr).first;
+                res.push_back(vector<int>{lastPos, lastHeight});
+            }
+        }
+        return res;
+    }
+};
+
+
+/*
+//TLE
+class Solution {
+public:
     class Node {
     public:
         int left;
@@ -73,3 +107,4 @@ public:
 private:
     vector<vector<int>> res;
 };
+*/
