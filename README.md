@@ -288,6 +288,7 @@ notes while solving problems in leetcode
 331. 验证二叉树的前序序列化。栈
 332. 重新安排行程。－
 334. 递增的三元子序列。一次遍历
+336. 回文对。字典树。注意输入中有空字符串
 337. 打家劫舍 III。－
 338. 比特位计数。－
 341. 扁平化嵌套列表迭代器。栈
@@ -563,6 +564,7 @@ vector<string> sub(sregex_token_iterator(paths[i].begin(), paths[i].end(), re, -
 762. 二进制表示中质数个计算置位。－
 763. 划分字母区间。－
 764. 最大加号标志。二维dp
+765. 情侣牵手。贪心。固定奇数位置不变，移动偶数位即可。
 766. 托普利茨矩阵。－
 767. 重构字符串。排序
 768. 最多能完成排序的块 II。可以从后往前，计算当前[i,len]的最小值和个数，和排序后当前位值的值和个数比较。
@@ -767,6 +769,7 @@ Line 923: Char 34: runtime error: reference binding to null pointer of type 'val
 1029. 两地调度。要使xa+yb <= xb+ya,即xa-xb <= ya-yb，差值排序，前N位去x地即可。
 1030. 距离顺序排列矩阵单元格。－
 1031. 两个非重叠子数组的最大和。数组
+1032. 字符流。反向初始化，用时100%
 1033. 移动石子直到连续。－
 1035. 不相交的线。同最长公共子序列，dp
 1037. 有效的回旋镖。－ 
@@ -833,6 +836,7 @@ Line 923: Char 34: runtime error: reference binding to null pointer of type 'val
 1172. 餐盘栈。map+set，maps用iterator和直接maps[idx]插入貌似时间不一样？
 1175. 质数排列。－
 1177. 构建回文串检测。把 ‘a’-'z' 对应一个26位的二进制数的每一位，当字符c出现奇数次时为1，偶数次时为0，转化成位运算
+1178. 猜字谜。位运算。遍历两个数组会TLE，考虑到puzzles的字符长度只有7，2^7 = 128，应该遍历puzzles的子集。for (int j = phash; j; j = ((j - 1) & phash))能够遍历所有子集，需要去掉不包含首字母的那些。
 1179. 重新格式化部门表。pivot是orical的，sql直接一个个选吧。。。
 1184. 公交站间的距离。－
 1185. 一周中的第几天。方法1，算到当前的天数，换星期；方法2，基姆拉尔森计算公式 Week=(Day + 2*Month + 3*(Month+1）/5 + Year + Year/4 - Year/100 + Year/400) % 7；方法3，c++自带函数（奸～）
