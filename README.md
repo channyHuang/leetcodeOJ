@@ -848,6 +848,7 @@ Line 923: Char 34: runtime error: reference binding to null pointer of type 'val
 1200. 最小绝对差。－
 1201. 丑数 III。数学
 1202. 交换字符串中的元素。并查集，尽量优化findParents，不然很容易TLE
+1206. 设计跳表。类似于线段树的操作，空间复杂度要优。
 1207. 独一无二的出现次数。－
 1208. 尽可能使字符串相等。sliding window
 1209. 删除字符串中的所有相邻重复项 II。栈
