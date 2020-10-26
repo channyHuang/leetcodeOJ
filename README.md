@@ -574,6 +574,7 @@ vector<string> sub(sregex_token_iterator(paths[i].begin(), paths[i].end(), re, -
 775. 全局倒置与局部倒置。取前i-2个当中最大的和当前的比较即可
 777. 在LR字符串中交换相邻字符。－ 
 779. 第K个语法符号。－
+780. 到达终点。递归。
 781. 森林中的兔子。数学？
 783. 二叉搜索树结点最小距离。－
 784. 字母大小写全排列。－
@@ -1027,6 +1028,7 @@ Line 923: Char 34: runtime error: reference binding to null pointer of type 'val
 1599. 经营摩天轮的最大利润。模拟
 1600. 皇位继承顺序。树，递归
 1606. 找到处理最多请求的服务器。优先队列+set，优先队列存储工作中的server，set存储当前可用的index，priority_queue，set有lower_bound可以直接用于查找
+1611. 使整数变为 0 的最少操作次数。格雷码操作。
 5336. 上升下降字符串。－ 
 5350. 将整数按权重排序。排序？
 5352. 生成每种字符都是奇数个的字符串。－
