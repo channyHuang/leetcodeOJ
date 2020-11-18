@@ -254,6 +254,7 @@ notes while solving problems in leetcode
 274. H指数。二分？
 275. H指数 II。同上题一样
 278. 第一个错误的版本。－
+282. 给表达式添加运算符。WA。。。其实要考虑挺多的，没给字符最大长度，应该是要大数运算吧。
 283. 移动零。－
 284. 顶端迭代器。－
 287. 寻找重复数。可看作是数组链表，有重复数字->有环。
@@ -545,6 +546,7 @@ vector<string> sub(sregex_token_iterator(paths[i].begin(), paths[i].end(), re, -
 712. 两个字符串的最小ASCII删除和。二维dp,dp[i][j]表示s1[0,i]和s2[0,j]的结果
 713. 乘积小于K的子数组。定右界，找左界
 714. 买卖股票的最佳时机含手续费。dp,维持两个数，一个花费，一个赚到的
+715. Range 模块。用map[right] = left，和lower_bound+upper_bound, 剩下的就是增删操作了。
 717. 1比特与2比特字符。－
 718. 最长重复子数组。dp. 子数组一定要连续？也没说啊～
 719. 找出第 k 小的距离对。对距离二分查找
@@ -556,6 +558,7 @@ vector<string> sub(sregex_token_iterator(paths[i].begin(), paths[i].end(), re, -
 728. 自除数。－
 729. 我的日程安排表 I。同731
 731. 我的日程安排表 II。map, maps[time]表示当前时间开始，后面的时间被占用，maps[start]++; maps[end]--; 遍历maps计算count大于等于3时表示有3重以上占用
+732. 我的日程安排表 III。类似于715, 用map[right] = (left,count)，和lower_bound+upper_bound, 剩下的还是增删操作。
 733. 图像渲染。－
 735. 行星碰撞。栈
 738. 单调递增的数字。贪心
@@ -730,6 +733,7 @@ Line 923: Char 34: runtime error: reference binding to null pointer of type 'val
 971. 翻转二叉树以匹配先序遍历。计数，深搜
 973. 最接近原点的 K 个点。－
 974. 和可被 K 整除的子数组。记录和取余
+975. 奇偶跳。算出每个元素下一跳的位置。
 976. 三角形的最大周长。－
 977. 有序数组的平方。－
 978. 最长湍流子数组。滑动窗口+2
