@@ -369,6 +369,7 @@ notes while solving problems in leetcode
 436. 寻找右区间。排序，二分
 437. 路径总和 III。－
 438. 找到字符串中所有字母异位词。统计
+440. 字典序的第K小数字。用字典树考虑，先计算以prefix为开头的数字有多少个，当end = prefix + 1 < n时，当前层的数字有（end - prefix）个，最后还要加上（n - prefix + 1）。然后从prefix = 1开始，当以prefix开头的数字 < k 时，说明前缀不是prefix，prefix++; 否则，说明前缀是prefix，往下一层查找，prefix *= 10。
 441. 排列硬币。－
 442. 数组中重复的数据。－ 
 443. 压缩字符串。－
