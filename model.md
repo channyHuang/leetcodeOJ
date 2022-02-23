@@ -182,3 +182,22 @@ string calculation
         return res;
     }
 ```
+
+```index
+    bool next(vector<int> &index, int len) {
+        int pos = 1;
+        while (pos < len) {
+            if (index[pos] > index[pos - 1]) {
+                sort(index.begin() + pos, index.end());
+                int idx = pos;
+                while (index[idx] < index[pos - 1]) idx++;
+                int tmp = index[pos - 1];
+                index[pos - 1] = index[idx];
+                index[idx] = tmp;
+                return true;
+            }
+            pos++;
+        }
+        return false;
+    }
+```
