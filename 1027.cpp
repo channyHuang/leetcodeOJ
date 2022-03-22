@@ -1,19 +1,48 @@
 class Solution {
 public:
-    int longestArithSeqLength(vector<int>& A) {
-        int len = A.size();
-        if (len == 2) return len;
-        int dp[len][len];
+    int longestArithSeqLength(vector<int>& nums) {
+        int len = nums.size();
+        if (len <= 2) return len;
         int res = 2;
-        memset(dp, 0, sizeof(dp));
-        for (int i = 2; i < len; i++) {
-            for (int x = i - 2; x >= 0; x--) {
-                for (int y = i - 1; y > x; y--) {
-                    if (A[y] + (A[y] - A[x]) * (dp[x][y] + 1) == A[i]) {
-                        dp[x][y]++;
+        unordered_map<int, vector<int>> maps;
+        for (int i = 0; i < len; ++i) {
+            maps[nums[i]].push_back(i);
+            res = std::max(res, (int)maps[nums[i]].size());
+        }
+        for (int i = 0; i < len; ++i) {
+            for (int j = i + 1; j < len; ++j) {
+                if (nums[j] != nums[i]) {
+                    int lastIdx = j;
+                    int diff = nums[j] - nums[i];
+                    int curlen = 2;
+                    int nextIdx = findUpper(maps[nums[lastIdx] + diff], lastIdx);
+                    while (nextIdx != -1) {
+                        if (curlen + len - lastIdx - 1 <= res) break;
+
+                        curlen++;
+                        lastIdx = nextIdx;
+                        nextIdx = findUpper(maps[nums[lastIdx] + diff], lastIdx);
                     }
-                    res = max(res, dp[x][y] + 2);
+
+                    res = std::max(res, curlen);
                 }
+            }
+        }
+        return res;
+    }
+
+    int findUpper(vector<int> &index, int tarIdx) {
+        int len = index.size();
+        if (len <= 0) return -1;
+        if (tarIdx >= index[len - 1]) return -1;
+        int minn = 0, maxn = len - 1;
+        int res = -1;
+        while (minn <= maxn) {
+            int midn = (minn + maxn) / 2;
+            if (index[midn] <= tarIdx) minn = midn + 1;
+            else {
+                res = index[midn];
+                maxn = midn - 1;
             }
         }
         return res;
